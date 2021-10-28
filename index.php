@@ -66,6 +66,7 @@
         <p>For simplicity, my program only tries to find 1 Hamiltonian cycle starting from the top left
             square. The code is written in Javascript so that it can run in the browser. The algorithm I used is called
             backtracking. I also utilized 2D arrays and custom objects.</p>
+        <a href="https://github.com/AnakinTrotter/snake-ai">Link to GitHub repository</a>
         <pre><code>
 // init grid size and allowed movement directions
 const m = 6, n = 6;
