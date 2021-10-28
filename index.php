@@ -30,7 +30,6 @@
             <button type="button" onclick="resetGame()">Reset</button>
         </div>
     </div>
-    <script src="js/game.js"></script>
     <section>
         <h2>Hamiltonian Cycles</h2>
         <p>If you watched the computer play, you would have seen that it repeatedly follows the same path until it wins.
@@ -135,6 +134,7 @@ function findCycle(x, y, depth) {
             <a href="https://en.wikipedia.org/wiki/Hamiltonian_path">https://en.wikipedia.org/wiki/Hamiltonian_path</a>
         </div>
     </section>
+    <script src="js/game.js"></script>
 </body>
 
 </html>
