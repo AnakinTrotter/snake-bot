@@ -11,14 +11,25 @@ for (let i = 0; i < m; i++) {
     grid[i] = new Array(n);
 }
 
-// initialize controls
+// handle controls
 const dirs = {
     left: [-1, 0],
     right: [1, 0],
     up: [0, -1],
     down: [0, 1]
 }
+var moveQueue = []
 document.addEventListener("keydown", function (event) {
+    if(moveQueue.length >= 2) {
+        return;
+    }
+    moveQueue.push(event);
+});
+function handleInput() {
+    if (moveQueue.length == 0) {
+        return;
+    }
+    let event = moveQueue.shift();
     if (snake.dir != dirs.right && (event.key == "a" || event.key == "ArrowLeft")) {
         snake.dir = dirs.left;
     } else if (snake.dir != dirs.left && (event.key == "d" || event.key == "ArrowRight")) {
@@ -28,8 +39,7 @@ document.addEventListener("keydown", function (event) {
     } else if (snake.dir != dirs.up && (event.key == "s" || event.key == "ArrowDown")) {
         snake.dir = dirs.down;
     }
-    console.log(event + " " + snake.dir);
-});
+}
 
 // initialize snake
 const snake = {
@@ -111,13 +121,18 @@ function drawSnake() {
     ctx.closePath();
 }
 
-// MAIN GAME LOOP
-
-function play() {
-    moveSnake();
+function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawApple();
     drawSnake();
+}
+
+// MAIN GAME LOOP
+
+function play() {
+    handleInput();
+    moveSnake();
+    draw();
 }
 var interval = setInterval(play, 100);
 
