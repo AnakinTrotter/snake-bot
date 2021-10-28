@@ -49,6 +49,7 @@ function followCycle() {
 }
 
 // calculate hamiltonian cycle
+// create array to store which direction to move at each step
 const cycle = new Array(m);
 for (let i = 0; i < m; i++) {
     cycle[i] = new Array(n).fill(0);
@@ -61,9 +62,12 @@ function isValid(x, y) {
 }
 function findCycle(x, y, depth) {
     if (depth == m * n - 1) {
-        for (let dir in dirs) {
+        for (let dir in dirs) { // iterate through directions
+            // coordinate of adjacent square
             let x1 = x + dirs[dir][0];
             let y1 = y + dirs[dir][1];
+            // if every square is visited and there is a path to (0, 0)
+            // from the last node then we found a Hamiltonian cycle
             if (x1 == 0 && y1 == 0) {
                 cycle[x][y] = dirs[dir];
                 return true;
@@ -71,6 +75,7 @@ function findCycle(x, y, depth) {
         }
         return false;
     }
+    // backtracking
     for (let dir in dirs) {
         let x1 = x + dirs[dir][0];
         let y1 = y + dirs[dir][1];
@@ -96,57 +101,62 @@ for (let i = 0; i < snake.body.length; i++) {
 
 // initialize apple
 const apple = {
-    x: Math.floor(Math.random() * m),
-    y: Math.floor(Math.random() * n)
+    x: 1,
+    y: 1
 }
 grid[apple.x][apple.y] = 1;
 
 // GAME LOGIC
 
 function moveSnake() {
-    if(snake.body.length >= m * n) {
-        alert("YOU WIN!");
-        document.location.reload();
-        clearInterval(interval); // Needed for Chrome to end game
+    if (snake.body.length >= m * n) {
         console.log("WIN!");
-        return;
+        return 1;
     }
+    // generate new square in front of snake in direction of movement
     let newHead = [];
     let dir = [snake.dir[0], snake.dir[1]];
     newHead[0] = snake.body[0][0] + dir[0];
     newHead[1] = snake.body[0][1] + dir[1];
     if (newHead[0] < 0 || newHead[0] >= m || newHead[1] < 0 || newHead[1] >= n) {
-        alert("GAME OVER!\nYou crashed into the wall.");
-        document.location.reload();
-        clearInterval(interval); // Needed for Chrome to end game
         console.log("OUT");
-        return;
+        return 2;
     } else if (newHead[0] == apple.x && newHead[1] == apple.y) {
         eatApple();
         console.log("YUM");
     } else if (grid[newHead[0]][newHead[1]] == 2) {
-        alert("GAME OVER!\nYou crashed into your own tail.");
-        document.location.reload();
-        clearInterval(interval); // Needed for Chrome to end game
         console.log("HIT");
-        return;
+        return 2;
     }
+    // add new square to front and delete oldest square from back  
     snake.body.unshift(newHead);
     let oldTail = snake.body.pop();
     grid[oldTail[0]][oldTail[1]] = 0;
     grid[newHead[0]][newHead[1]] = 2;
+    return 0;
+}
+
+function getEmpty() {
+    let empty = [];
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            if (grid[i][j] == 0) {
+                empty.push([i, j]);
+            }
+        }
+    }
+    return empty[Math.floor(Math.random() * empty.length)];
 }
 
 function eatApple() {
-    let xa = Math.floor(Math.random() * m);
-    let ya = Math.floor(Math.random() * n);
-    while (grid[xa][ya] != 0) {
-        xa = Math.floor(Math.random() * m)
-        ya = Math.floor(Math.random() * n)
-    }
+    let square = getEmpty();
+    grid[apple.x][apple.y] = 0;
+    let xa = square[0];
+    let ya = square[1];
     apple.x = xa;
     apple.y = ya;
     grid[apple.x][apple.y] = 1;
+    // grow new tail segment in opposite direction of previous tail
     let oldTail = snake.body[snake.body.length - 1];
     let olderTail = snake.body[snake.body.length - 2];
     let tailDir = [olderTail[0] - oldTail[0], olderTail[1] - oldTail[1]];
@@ -186,29 +196,78 @@ function draw() {
 
 const GAME_SPEED = 150;
 function play() {
-    if(humanPlaying) {
+    if (humanPlaying) {
         handleInput();
     } else {
         followCycle();
     }
-    moveSnake(); 
-    draw();
+    let state = moveSnake();
+    if (state == 0) {
+        draw();
+    } else if (state == 1) {
+        clearInterval(interval);
+        ctx.beginPath();
+        ctx.font = 'bold 1.5em serif';
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 2;
+        ctx.strokeText("YOU WIN!", 65, 90);
+        ctx.fillStyle = "yellow";
+        ctx.fillText("YOU WIN!", 65, 90);
+        ctx.closePath();
+    } else if (state == 2) {
+        clearInterval(interval);
+        ctx.beginPath();
+        ctx.font = 'bold 1.5em serif';
+        ctx.strokeStyle = "white";
+        ctx.lineWidth = 2;
+        ctx.strokeText("GAME OVER!", 40, 90);
+        ctx.fillStyle = "black";
+        ctx.fillText("GAME OVER!", 40, 90);
+        ctx.closePath();
+    }
 }
 
 // BUTTON LOGIC
+var playButton = document.getElementById("play");
+var stopButton = document.getElementById("reset");
 function playComputer() {
-    //document.location.reload();
     humanPlaying = false;
-    findCycle(0, 0, 0);
     interval = setInterval(play, GAME_SPEED);
+    playButton.style.display = "none";
+    stopButton.style.display = "block";
 }
 
 function playHuman() {
-    //document.location.reload();
     clearInterval(interval);
     humanPlaying = true;
     interval = setInterval(play, GAME_SPEED);
+    playButton.style.display = "none";
+    stopButton.style.display = "block";
 }
 
-ctx.font = '1em serif';
-ctx.fillText("Press play button to start!", 40, 90);
+function resetGame() {
+    clearInterval(interval);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            grid[i][j] = 0;
+        }
+    }
+    let square = getEmpty();
+    apple.x = square[0];
+    apple.y = square[1];
+    grid[apple.x][apple.y] = 1;
+    snake.body = [[Math.floor(m / 2), Math.floor(n / 2)], [Math.floor(m / 2), Math.floor(n / 2 + 1)]];
+    snake.dir = dirs.up;
+    for (let i = 0; i < snake.body.length; i++) {
+        grid[snake.body[i][0]][snake.body[i][1]] = 2;
+    }
+    ctx.fillStyle = "black";
+    ctx.font = '1em serif';
+    ctx.fillText("Press play button to start!", 40, 90);
+    playButton.style.display = "block";
+    stopButton.style.display = "none";
+}
+
+findCycle(0, 0, 0);
+resetGame();
