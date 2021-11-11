@@ -70,4 +70,3 @@ This project is covered under the MIT license.
 ## Questions
 
 Please create an issue should you have any questions or feature suggestions.
-
