@@ -10,6 +10,7 @@
 - [snake-bot-site](#snake-bot-site)
   - [Table of Contents](#table-of-contents)
   - [About the Project](#about-the-project)
+  - [About the Author](#about-the-author)
   - [Prerequisites](#prerequisites)
   - [Built With](#built-with)
   - [Technologies Used](#technologies-used)
@@ -22,6 +23,11 @@
 ## About the Project
  
  ![screenshot of website title and about the game section](./img/preview.png)  
+ 
+## About the Author
+**Anakin Trotter**
+- [Link to Anakin's GitHub](https://github.com/AnakinTrotter)
+- [Link to Anakin's LinkedIn](linkedin.com/in/anakintrotter)
 
 ## Prerequisites
 A modern internet browser such as Chrome, Firefox, or Safari.
