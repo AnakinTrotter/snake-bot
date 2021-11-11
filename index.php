@@ -24,6 +24,7 @@ function auto_version($file)
 
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Snake Bot</title>
     <link rel="icon" href="img/icon.png">
     <link rel="stylesheet" href="<?php echo auto_version('css/main.css'); ?>">
