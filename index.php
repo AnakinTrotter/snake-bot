@@ -1,3 +1,22 @@
+<?php
+
+/**
+ *  Given a file, i.e. /css/base.css, replaces it with a string containing the
+ *  file's mtime, i.e. /css/base.1221534296.css.
+ *
+ *  @param $file  The file to be loaded.  Must be an absolute path (i.e.
+ *                starting with slash).
+ */
+function auto_version($file)
+{
+    if (strpos($file, '/') !== 0 || !file_exists($_SERVER['DOCUMENT_ROOT'] . $file))
+        return $file;
+
+    $mtime = filemtime($_SERVER['DOCUMENT_ROOT'] . $file);
+    return preg_replace('{\\.([^./]+)$}', ".$mtime.\$1", $file);
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -5,7 +24,7 @@
     <meta charset="utf-8" />
     <title>Snake Bot</title>
     <link rel="icon" href="img/icon.png">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" "<?php echo auto_version('./css/main.css'); ?>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
