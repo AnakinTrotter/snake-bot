@@ -160,7 +160,7 @@ function findCycle(x, y, depth) {
 
 // initialize snake
 const snake = {
-    body: [[Math.floor(m / 2), Math.floor(n / 2)], [Math.floor(m / 2), Math.floor(n / 2 + 1)]],
+    body: [[m - 2, n - 1], [m - 1, n - 1]],
     dir: dirs.up
 };
 for (let i = 0; i < snake.body.length; i++) {
@@ -262,7 +262,7 @@ function draw() {
 
 // MAIN GAME LOOP
 
-const GAME_SPEED = 175;
+const GAME_SPEED = 150;
 function play() {
     if (humanPlaying) {
         handleInput();
