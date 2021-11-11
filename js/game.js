@@ -11,7 +11,71 @@ for (let i = 0; i < m; i++) {
     grid[i] = new Array(n).fill(0);
 }
 
+// handle swipes for mobile (https://www.kirupa.com/html5/detecting_touch_swipe_gestures.htm)
+canvas.addEventListener("touchstart", startTouch, false);
+canvas.addEventListener("touchmove", moveTouch, false);
+
+// Swipe Up / Down / Left / Right
+var initialX = null;
+var initialY = null;
+
+function startTouch(e) {
+    initialX = e.touches[0].clientX;
+    initialY = e.touches[0].clientY;
+    e.preventDefault();
+};
+
+function moveTouch(e) {
+    if (moveQueue.length >= 2) {
+        return;
+    }
+
+    if (initialX === null) {
+        return;
+    }
+
+    if (initialY === null) {
+        return;
+    }
+
+    var currentX = e.touches[0].clientX;
+    var currentY = e.touches[0].clientY;
+
+    var diffX = initialX - currentX;
+    var diffY = initialY - currentY;
+
+    if (Math.abs(diffX) > Math.abs(diffY)) {
+        // sliding horizontally
+        if (diffX > 0) {
+            // swiped left
+            moveQueue.push("left");
+            console.log("swiped left");
+        } else {
+            // swiped right
+            moveQueue.push("right");
+            console.log("swiped right");
+        }
+    } else {
+        // sliding vertically
+        if (diffY > 0) {
+            // swiped up
+            moveQueue.push("up");
+            console.log("swiped up");
+        } else {
+            // swiped down
+            moveQueue.push("down");
+            console.log("swiped down");
+        }
+    }
+
+    initialX = null;
+    initialY = null;
+
+    e.preventDefault();
+};
+
 // handle controls
+var playerPlaying = false;
 var humanPlaying = true;
 var interval = 0;
 const dirs = {
@@ -21,7 +85,11 @@ const dirs = {
     down: [0, 1]
 }
 var moveQueue = []
+console.log(document.activeElement);
 document.addEventListener("keydown", function (event) {
+    if (playerPlaying) {
+        event.preventDefault();
+    }
     if (moveQueue.length >= 2) {
         return;
     }
@@ -32,13 +100,14 @@ function handleInput() {
         return;
     }
     let event = moveQueue.shift();
-    if (snake.dir != dirs.right && (event.key == "a" || event.key == "ArrowLeft")) {
+    console.log(event);
+    if (snake.dir != dirs.right && (event == "left" || event.key == "a" || event.key == "ArrowLeft")) {
         snake.dir = dirs.left;
-    } else if (snake.dir != dirs.left && (event.key == "d" || event.key == "ArrowRight")) {
+    } else if (snake.dir != dirs.left && (event == "right" || event.key == "d" || event.key == "ArrowRight")) {
         snake.dir = dirs.right;
-    } else if (snake.dir != dirs.down && (event.key == "w" || event.key == "ArrowUp")) {
+    } else if (snake.dir != dirs.down && (event == "up" || event.key == "w" || event.key == "ArrowUp")) {
         snake.dir = dirs.up;
-    } else if (snake.dir != dirs.up && (event.key == "s" || event.key == "ArrowDown")) {
+    } else if (snake.dir != dirs.up && (event == "down" || event.key == "s" || event.key == "ArrowDown")) {
         snake.dir = dirs.down;
     }
 }
@@ -214,6 +283,7 @@ function play() {
         ctx.fillStyle = "yellow";
         ctx.fillText("YOU WIN!", 65, 90);
         ctx.closePath();
+        playerPlaying = false;
     } else if (state == 2) {
         clearInterval(interval);
         ctx.beginPath();
@@ -224,6 +294,7 @@ function play() {
         ctx.fillStyle = "black";
         ctx.fillText("GAME OVER!", 40, 90);
         ctx.closePath();
+        playerPlaying = false;
     }
 }
 
@@ -256,6 +327,7 @@ function playHuman() {
     interval = setInterval(play, GAME_SPEED);
     playButton.style.display = "none";
     stopButton.style.display = "block";
+    playerPlaying = true;
 }
 
 function resetGame() {
@@ -277,7 +349,9 @@ function resetGame() {
     }
     ctx.fillStyle = "black";
     ctx.font = '1em serif';
-    ctx.fillText("Press play button to start!", 40, 90);
+    let textString = "Press play button to start!";
+    let textWidth = ctx.measureText(textString).width
+    ctx.fillText(textString, (canvas.width - textWidth) / 2, 90);
     playButton.style.display = playButtonDisplay;
     stopButton.style.display = "none";
 }

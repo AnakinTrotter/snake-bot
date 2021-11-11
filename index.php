@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Snake AI</title>
+    <title>Snake Bot</title>
     <link rel="icon" href="img/icon.png">
     <link rel="stylesheet" href="css/main.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -26,7 +26,8 @@
                 Crashing
                 into the wall or the snake's own tail will result in a game over. In the demo I have created below, the
                 green squares make up the snake and the red square is the apple. Click "Play as Human" and use the arrow
-                keys or WASD to control the snake. Alternatively, click "Play as Computer" to see the winning strategy.
+                keys or WASD to control the snake. For mobile users, swipe in the desired direction of movement.
+                Alternatively, click "Play as Computer" to see the winning strategy.
             </p>
             <div>
                 <canvas id="myCanvas" width="240" height="240"></canvas>
@@ -52,7 +53,8 @@
                 to
                 the starting node.</p>
             <img alt="An undirected graph that contains a Hamiltonian cycle." src="img/cycle.png" />
-            <img alt="An undirected graph that contains an articulation point and no Hamiltonian cycle." src="img/articulation.png" />
+            <img alt="An undirected graph that contains an articulation point and no Hamiltonian cycle."
+                src="img/articulation.png" />
             <img alt="An undirected graph that contains a pendant and no Hamiltonian cycle." src="img/pendant.png" />
             <p>For example, in figure 1, the paths through nodes 1, 2, 3, 4, 5, 1 and 3, 4, 5, 2, 1, 3 are Hamiltonian
                 cycles
