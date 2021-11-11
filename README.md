@@ -10,6 +10,7 @@
 - [snake-bot-site](#snake-bot-site)
   - [Table of Contents](#table-of-contents)
   - [About the Project](#about-the-project)
+  - [About the Author](#about-the-author)
   - [Prerequisites](#prerequisites)
   - [Built With](#built-with)
   - [Technologies Used](#technologies-used)
@@ -20,10 +21,21 @@
   - [Questions](#questions)
 
 ## About the Project
+
+Snake bot is intended to be used primarily as an educational tool for those
+wanting to learn more about graph theory and backtracking.
+Althought the website goes into great depth regarding Hamiltonian cycles and the implementation
+details of the snake cycle finder, you can also simply relax and play snake if you so desire.
  
  ![screenshot of website title and about the game section](./img/preview.png)  
+ 
+## About the Author
+**Anakin Trotter**
+- [Link to Anakin's GitHub](https://github.com/AnakinTrotter)
+- [Link to Anakin's LinkedIn](https://linkedin.com/in/anakintrotter)
 
 ## Prerequisites
+
 A modern internet browser such as Chrome, Firefox, or Safari.
 
 ## Built With
@@ -49,7 +61,7 @@ A modern internet browser such as Chrome, Firefox, or Safari.
 
 ## Contributing
 
-Code contributions are welcome! Please create a pull request with your updated code.
+Contributions are encouraged! Please create a pull request with your updated code.
 
 ## License
 
@@ -58,6 +70,3 @@ This project is covered under the MIT license.
 ## Questions
 
 Please create an issue should you have any questions or feature suggestions.
-
-Developer's Repositories:  
-[Anakin Trotter](https://github.com/AnakinTrotter)
