@@ -174,7 +174,7 @@ function findCycle(x, y, depth) {
         <section id="references">
             <h2>References</h2>
             <div id="ref-links">
-                <a href="https://www.youtube.com/watch?v=dQr4wZCiJJ4&t=268s" target="__blank">https://www.youtube.com/watch?v=dQr4wZCiJJ4&t=268s</a>
+                <a href="https://www.youtube.com/watch?v=dQr4wZCiJJ4" target="__blank">https://www.youtube.com/watch?v=dQr4wZCiJJ4&t=268s</a>
                 <a href="https://math.stackexchange.com/questions/1699203/hamilton-paths-cycles-in-grid-graphs/1699220#1699220" target="_blank">https://math.stackexchange.com/questions/1699203/hamilton-paths-cycles-in-grid-graphs/1699220#1699220</a>
                 <a href="https://www.geeksforgeeks.org/proof-that-hamiltonian-cycle-is-np-complete/" target="_blank">https://www.geeksforgeeks.org/proof-that-hamiltonian-cycle-is-np-complete/</a>
                 <a href="https://en.wikipedia.org/wiki/Hamiltonian_path" target="_blank">https://en.wikipedia.org/wiki/Hamiltonian_path</a>
