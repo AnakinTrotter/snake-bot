@@ -12,8 +12,8 @@ for (let i = 0; i < m; i++) {
 }
 
 // handle swipes for mobile (https://www.kirupa.com/html5/detecting_touch_swipe_gestures.htm)
-canvas.addEventListener("touchstart", startTouch, false);
-canvas.addEventListener("touchmove", moveTouch, false);
+canvas.addEventListener("touchstart", startTouch, true);
+canvas.addEventListener("touchmove", moveTouch, true);
 
 // Swipe Up / Down / Left / Right
 var initialX = null;
@@ -85,7 +85,6 @@ const dirs = {
     down: [0, 1]
 }
 var moveQueue = []
-console.log(document.activeElement);
 document.addEventListener("keydown", function (event) {
     if (playerPlaying) {
         event.preventDefault();
