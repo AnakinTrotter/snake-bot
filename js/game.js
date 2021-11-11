@@ -12,8 +12,8 @@ for (let i = 0; i < m; i++) {
 }
 
 // handle swipes for mobile (https://www.kirupa.com/html5/detecting_touch_swipe_gestures.htm)
-canvas.addEventListener("touchstart", startTouch, true);
-canvas.addEventListener("touchmove", moveTouch, true);
+canvas.addEventListener("touchstart", startTouch, false);
+canvas.addEventListener("touchmove", moveTouch, false);
 
 // Swipe Up / Down / Left / Right
 var initialX = null;
