@@ -71,5 +71,3 @@ This project is covered under the MIT license.
 
 Please create an issue should you have any questions or feature suggestions.
 
-Developer's Repositories:  
-[Anakin Trotter](https://github.com/AnakinTrotter)
