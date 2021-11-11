@@ -51,9 +51,9 @@
                 cycle is defined as a closed loop through a graph that visits each vertex exactly once before returning
                 to
                 the starting node.</p>
-            <img src="img/cycle.png" />
-            <img src="img/articulation.png" />
-            <img src="img/pendant.png" />
+            <img alt="An undirected graph that contains a Hamiltonian cycle." src="img/cycle.png" />
+            <img alt="An undirected graph that contains an articulation point and no Hamiltonian cycle." src="img/articulation.png" />
+            <img alt="An undirected graph that contains a pendant and no Hamiltonian cycle." src="img/pendant.png" />
             <p>For example, in figure 1, the paths through nodes 1, 2, 3, 4, 5, 1 and 3, 4, 5, 2, 1, 3 are Hamiltonian
                 cycles
                 because each vertex is visited one time, and the paths have the same starting and ending node.
@@ -69,7 +69,7 @@
                 exactly 1
                 edge.
             </p>
-            <img src="img/6x6.png" />
+            <img alt="A Hamiltonian path starting from the top left on a 6x6 grid." src="img/6x6.png" />
             <p>
                 Applying the concept of Hamiltonian cycles to snake, we can treat the game like a grid graph, where
                 each square in the game represents a vertex and each vertex has bidirectional edges leading to all
