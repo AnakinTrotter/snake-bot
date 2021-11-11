@@ -27,7 +27,7 @@
 ## About the Author
 **Anakin Trotter**
 - [Link to Anakin's GitHub](https://github.com/AnakinTrotter)
-- [Link to Anakin's LinkedIn](linkedin.com/in/anakintrotter)
+- [Link to Anakin's LinkedIn](https://linkedin.com/in/anakintrotter)
 
 ## Prerequisites
 A modern internet browser such as Chrome, Firefox, or Safari.
