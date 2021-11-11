@@ -3,7 +3,7 @@ const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
 
 // initialize grid
-const TILE_SIZE = 40;
+const TILE_SIZE = 80;
 const m = canvas.width / TILE_SIZE;
 const n = canvas.height / TILE_SIZE;
 const grid = new Array(m);
@@ -276,23 +276,20 @@ function play() {
     } else if (state == 1) {
         clearInterval(interval);
         ctx.beginPath();
-        ctx.font = 'bold 1.5em serif';
-        ctx.strokeStyle = "black";
-        ctx.lineWidth = 2;
-        ctx.strokeText("YOU WIN!", 65, 90);
         ctx.fillStyle = "yellow";
-        ctx.fillText("YOU WIN!", 65, 90);
-        ctx.closePath();
+        ctx.font = 'bold 2em serif';
+        let textString = "YOU WIN!";
+        let textWidth = ctx.measureText(textString).width
+        ctx.fillText(textString, (canvas.width - textWidth) / 2, canvas.height / 2.5);
         playerPlaying = false;
     } else if (state == 2) {
         clearInterval(interval);
         ctx.beginPath();
-        ctx.font = 'bold 1.5em serif';
-        ctx.strokeStyle = "white";
-        ctx.lineWidth = 2;
-        ctx.strokeText("GAME OVER!", 40, 90);
-        ctx.fillStyle = "black";
-        ctx.fillText("GAME OVER!", 40, 90);
+        ctx.fillStyle = "orange";
+        ctx.font = 'bold 2em serif';
+        let textString = "GAME OVER!";
+        let textWidth = ctx.measureText(textString).width
+        ctx.fillText(textString, (canvas.width - textWidth) / 2, canvas.height / 2.5);
         ctx.closePath();
         playerPlaying = false;
     }
@@ -348,7 +345,7 @@ function resetGame() {
         grid[snake.body[i][0]][snake.body[i][1]] = 2;
     }
     ctx.fillStyle = "black";
-    ctx.font = '1em serif';
+    ctx.font = '2em serif';
     let textString = "Press play button to start!";
     let textWidth = ctx.measureText(textString).width
     ctx.fillText(textString, (canvas.width - textWidth) / 2, 90);

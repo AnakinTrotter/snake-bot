@@ -26,11 +26,11 @@
                 Crashing
                 into the wall or the snake's own tail will result in a game over. In the demo I have created below, the
                 green squares make up the snake and the red square is the apple. Click "Play as Human" and use the arrow
-                keys or WASD to control the snake. For mobile users, swipe in the desired direction of movement.
+                keys or WASD to control the snake. For mobile users, swipe the game board in the desired direction of movement.
                 Alternatively, click "Play as Computer" to see the winning strategy.
             </p>
             <div>
-                <canvas id="myCanvas" width="240" height="240"></canvas>
+                <canvas id="myCanvas" width="480" height="480"></canvas>
                 <div class="text-center">
                     <div class="btn-group" id="play">
                         <button class="btn btn-primary" type="button" onclick="playHuman()">Play as Human</button>
