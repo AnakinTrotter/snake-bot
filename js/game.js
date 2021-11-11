@@ -262,7 +262,7 @@ function draw() {
 
 // MAIN GAME LOOP
 
-const GAME_SPEED = 200;
+const GAME_SPEED = 175;
 function play() {
     if (humanPlaying) {
         handleInput();
