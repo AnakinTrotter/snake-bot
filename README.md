@@ -45,7 +45,7 @@ A modern internet browser such as Chrome, Firefox, or Safari.
   
 ## Deployed Link
 
-* [Click to visit the live website](https://snake-bot-site.herokuapp.com/) 
+* [https://snake-bot-site.herokuapp.com/](https://snake-bot-site.herokuapp.com/) 
 
 ## Contributing
 
