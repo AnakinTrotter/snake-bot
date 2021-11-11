@@ -24,7 +24,6 @@ function auto_version($file)
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Snake Bot</title>
     <link rel="icon" href="img/icon.png">
     <link rel="stylesheet" href="<?php echo auto_version('css/main.css'); ?>">
@@ -54,12 +53,12 @@ function auto_version($file)
                 <canvas id="myCanvas" width="480" height="480"></canvas>
                 <div class="text-center">
                     <div class="btn-group" id="play">
-                        <button class="btn btn-primary" type="button" onclick="playHuman()">Play as Human</button>
-                        <button class="btn btn-secondary" type="button" onclick="playComputer()">Play as
+                        <button class="btn btn-lg btn-primary" type="button" onclick="playHuman()">Play as Human</button>
+                        <button class="btn btn-lg btn-secondary" type="button" onclick="playComputer()">Play as
                             Computer</button>
                     </div>
                     <div id="reset">
-                        <button class="btn btn-primary" type="button" onclick="resetGame()">Reset</button>
+                        <button class="btn btn-lg btn-primary" type="button" onclick="resetGame()">Reset</button>
                     </div>
                 </div>
             </div>
