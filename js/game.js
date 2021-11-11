@@ -338,7 +338,7 @@ function resetGame() {
     apple.x = square[0];
     apple.y = square[1];
     grid[apple.x][apple.y] = 1;
-    snake.body = [[Math.floor(m / 2), Math.floor(n / 2)], [Math.floor(m / 2), Math.floor(n / 2 + 1)]];
+    snake.body = [[m - 2, n - 1], [m - 1, n - 1]];
     snake.dir = dirs.up;
     for (let i = 0; i < snake.body.length; i++) {
         grid[snake.body[i][0]][snake.body[i][1]] = 2;
