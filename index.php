@@ -11,13 +11,13 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <section>
-            <h1 class="display-1 text-center text-primary">Snake Bot</h1>
-            <h3 class="h3 text-center text-secondary">By: Anakin Trotter</h3>
-            <a href="#sidebar" id="open-menu" class="d-block mt-3 text-center fw-bold h4" role="button">Table of
-                Contents</a>
-        </section>
+    <section class="container-fluid bg-light">
+        <h1 class="display-1 text-center text-primary">Snake Bot</h1>
+        <h3 class="h3 text-center text-secondary">By: Anakin Trotter</h3>
+        <a href="#sidebar" id="open-menu" class="d-block mt-3 text-center fw-bold h4" role="button">Table of
+            Contents</a>
+    </section>
+    <div class="container-md">
         <section id="about-the-game">
             <h2>About the Game</h2>
             <p>The snake game genre originated in 1976 with the game <i>Blockade</i> by Gremlin Industries. The
