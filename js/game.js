@@ -228,7 +228,20 @@ function play() {
 }
 
 // BUTTON LOGIC
+document.addEventListener("DOMContentLoaded", function () {
+    let myOffcanvas = document.getElementById("sidebar");
+    if (myOffcanvas != null) {
+        let bsOffcanvas = new bootstrap.Offcanvas(myOffcanvas);
+        document.getElementById("open-menu").addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            bsOffcanvas.toggle();
+        });
+    }
+});
+
 var playButton = document.getElementById("play");
+var playButtonDisplay = playButton.style.display;
 var stopButton = document.getElementById("reset");
 function playComputer() {
     humanPlaying = false;
@@ -265,7 +278,7 @@ function resetGame() {
     ctx.fillStyle = "black";
     ctx.font = '1em serif';
     ctx.fillText("Press play button to start!", 40, 90);
-    playButton.style.display = "block";
+    playButton.style.display = playButtonDisplay;
     stopButton.style.display = "none";
 }
 
