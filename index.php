@@ -1,3 +1,4 @@
+<?php Header("Cache-Control: max-age=3000, must-revalidate"); ?>
 <!DOCTYPE html>
 <html>
 
@@ -6,8 +7,7 @@
     <title>Snake Bot</title>
     <link rel="icon" href="img/icon.png">
     <link rel="stylesheet" href="css/main.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
 <body>
@@ -53,8 +53,7 @@
                 to
                 the starting node.</p>
             <img alt="An undirected graph that contains a Hamiltonian cycle." src="img/cycle.png" />
-            <img alt="An undirected graph that contains an articulation point and no Hamiltonian cycle."
-                src="img/articulation.png" />
+            <img alt="An undirected graph that contains an articulation point and no Hamiltonian cycle." src="img/articulation.png" />
             <img alt="An undirected graph that contains a pendant and no Hamiltonian cycle." src="img/pendant.png" />
             <p>For example, in figure 1, the paths through nodes 1, 2, 3, 4, 5, 1 and 3, 4, 5, 2, 1, 3 are Hamiltonian
                 cycles
@@ -154,14 +153,10 @@ function findCycle(x, y, depth) {
         <section id="references">
             <h2>References</h2>
             <div id="ref-links">
-                <a href="https://www.youtube.com/watch?v=dQr4wZCiJJ4&t=268s"
-                    target="__blank">https://www.youtube.com/watch?v=dQr4wZCiJJ4&t=268s</a>
-                <a href="https://math.stackexchange.com/questions/1699203/hamilton-paths-cycles-in-grid-graphs/1699220#1699220"
-                    target="_blank">https://math.stackexchange.com/questions/1699203/hamilton-paths-cycles-in-grid-graphs/1699220#1699220</a>
-                <a href="https://www.geeksforgeeks.org/proof-that-hamiltonian-cycle-is-np-complete/"
-                    target="_blank">https://www.geeksforgeeks.org/proof-that-hamiltonian-cycle-is-np-complete/</a>
-                <a href="https://en.wikipedia.org/wiki/Hamiltonian_path"
-                    target="_blank">https://en.wikipedia.org/wiki/Hamiltonian_path</a>
+                <a href="https://www.youtube.com/watch?v=dQr4wZCiJJ4&t=268s" target="__blank">https://www.youtube.com/watch?v=dQr4wZCiJJ4&t=268s</a>
+                <a href="https://math.stackexchange.com/questions/1699203/hamilton-paths-cycles-in-grid-graphs/1699220#1699220" target="_blank">https://math.stackexchange.com/questions/1699203/hamilton-paths-cycles-in-grid-graphs/1699220#1699220</a>
+                <a href="https://www.geeksforgeeks.org/proof-that-hamiltonian-cycle-is-np-complete/" target="_blank">https://www.geeksforgeeks.org/proof-that-hamiltonian-cycle-is-np-complete/</a>
+                <a href="https://en.wikipedia.org/wiki/Hamiltonian_path" target="_blank">https://en.wikipedia.org/wiki/Hamiltonian_path</a>
             </div>
         </section>
         <div class="offcanvas offcanvas-end" tabindex="-1" id="sidebar" aria-labelledby="sidebar-label">
@@ -187,9 +182,7 @@ function findCycle(x, y, depth) {
             </div>
         </div>
         <script src="js/game.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </div>
 
