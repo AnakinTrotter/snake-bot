@@ -3,6 +3,8 @@
 /**
  *  Given a file, i.e. /css/base.css, replaces it with a string containing the
  *  file's mtime, i.e. /css/base.1221534296.css.
+ * 
+ *  https://stackoverflow.com/questions/118884/how-to-force-the-browser-to-reload-cached-css-and-javascript-files
  *
  *  @param $file  The file to be loaded.  Must be an absolute path (i.e.
  *                starting with slash).
