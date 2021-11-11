@@ -61,7 +61,7 @@ A modern internet browser such as Chrome, Firefox, or Safari.
 
 ## Contributing
 
-Code contributions are welcome! Please create a pull request with your updated code.
+Contributions are encouraged! Please create a pull request with your updated code.
 
 ## License
 
