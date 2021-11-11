@@ -21,6 +21,12 @@
   - [Questions](#questions)
 
 ## About the Project
+
+Snake bot is intended to be used primarily as an educational tool for those
+wanting to learn more about graph theory and backtracking.
+
+The website goes into great depth regarding Hamiltonian cycles and the implementation
+details of the snake cycle finder.
  
  ![screenshot of website title and about the game section](./img/preview.png)  
  
@@ -30,6 +36,7 @@
 - [Link to Anakin's LinkedIn](https://linkedin.com/in/anakintrotter)
 
 ## Prerequisites
+
 A modern internet browser such as Chrome, Firefox, or Safari.
 
 ## Built With
