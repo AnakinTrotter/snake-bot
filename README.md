@@ -24,7 +24,7 @@
 
 Snake bot is intended to be used primarily as an educational tool for those
 wanting to learn more about graph theory and backtracking.
-Althought the website goes into great depth regarding Hamiltonian cycles and the implementation
+Although the website goes into great depth regarding Hamiltonian cycles and the implementation
 details of the snake cycle finder, you can also simply relax and play snake if you so desire.
  
  ![screenshot of website title and about the game section](./img/preview.png)  
