@@ -3,7 +3,8 @@ const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
 
 // initialize grid
-const TILE_SIZE = 80;
+const BOARD_DIM = 6;
+const TILE_SIZE = ctx.canvas.width / BOARD_DIM;
 const m = canvas.width / TILE_SIZE;
 const n = canvas.height / TILE_SIZE;
 const grid = new Array(m);

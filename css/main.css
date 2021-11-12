@@ -1,3 +1,12 @@
+html, body {
+    overflow-x: hidden
+}
+
+img {
+    max-width: 90vw;
+    margin: 0 auto;
+}
+
 canvas {
     background: #eee;
     display: block;
@@ -6,6 +15,13 @@ canvas {
     padding: 1px;
     margin-bottom: 1%;
     margin-top: 2%;
+    width: 75%;
+}
+
+@media only screen and (min-width: 768px) {
+    canvas {
+        width: 40%;
+    }
 }
 
 section {
